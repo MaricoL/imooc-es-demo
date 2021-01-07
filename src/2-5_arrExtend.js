@@ -35,18 +35,34 @@ let divs = document.querySelectorAll("div");
 // let arr7 = Array.of(1,'abc',true,{name:'zhangsan'});
 // console.log(arr7);      // [1, "abc", true, {…}]
 
-// ================ copyWithin() 创建新数组 ================
-let arr8 = [1, 2, 3, 4, 5];
+// ================ copyWithin() 复制替换数组内的元素 ================
+// let arr8 = [1, 2, 3, 4, 5];
 // 从下标为 1 的元素开始，将后面的元素替换为下标为 3 的元素到最后的元素
 // copyWithin会影响元素组
-let arr9 = arr8.copyWithin(1, 3);
-console.log(arr9);      // [1, 4, 5, 4, 5]
+// let arr9 = arr8.copyWithin(1, 3);
+// console.log(arr9);      // [1, 4, 5, 4, 5]
 
-let arr10 = [1, 4, 5, 4, 5];
+// let arr10 = [1, 4, 5, 4, 5];
 // 从下标为 1 的元素开始，将后面的元素替换为下标为 2 的元素到下标为 3 的元素（不包括下标为3的元素）
 // copyWithin会影响元素组
-let arr11 = arr10.copyWithin(1, 2, 3);
-console.log(arr11);      // [1, 5, 5, 4, 5]
+// let arr11 = arr10.copyWithin(1, 2, 3);
+// console.log(arr11);      // [1, 5, 5, 4, 5]
+
+// let arr12 = [1, 3, 5, 7, 9, 11, 13, 15, 17];
+// let arr13 = arr12.copyWithin(2, arr12.length - 3, arr12.length - 1);
+// console.log(arr13);     // [1, 3, 13, 15, 9, 11, 13, 15, 17]
+
+// ================ fill() 数组元素填充 ================
+// fill()指定一个参数时，则将数组元素填充为当前参数
+// let arr14 = new Array(5).fill(2);
+// console.log(arr14);     // [2, 2, 2, 2, 2]
+
+// fill(100,1,3)：将下标为1的元素到下标为3的元素（不包括下标为3的元素）填充为100
+// let arr15 = Array.of(1,2,3,4,5);
+// arr15.fill(100,1,3);
+// console.log(arr15);     // [1, 100, 100, 4, 5]
+
+
 
 
 
