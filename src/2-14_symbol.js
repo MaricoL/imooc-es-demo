@@ -60,18 +60,18 @@
 // console.log(grade2[stud2]);     // {address: "bbb", phone: "222"}
 
 // 应用二：隐藏对象遍历
-// const sym = Symbol('age');
-// class User {
-//     constructor(name) {
-//         this.name = name;
-//         this[sym] = 18
-//     }
+const sym = Symbol('age');
+class User {
+    constructor(name) {
+        this.name = name;
+        this[sym] = 18
+    }
 
-//     show() {
-//         console.log(this.name + this[sym]);
-//     }
-// }
-// let user = new User('zhangsan');
+    show() {
+        console.log(this.name + this[sym]);
+    }
+}
+let user = new User('zhangsan');
 // user.show();        // zhangsan18
 
 // for in 无法遍历 Symbol 类型的 key
@@ -90,7 +90,43 @@
 // }
 
 // Reflect.ownKeys(user) 可以遍历所有属性
-for (let key of Reflect.ownKeys(user)) {
-    console.log(key, user[key]);        // name zhangsan
-                                        // Symbol(age) 18
-}
+// for (let key of Reflect.ownKeys(user)) {
+//     console.log(key, user[key]);        // name zhangsan
+//                                         // Symbol(age) 18
+// }
+
+// 应用三：消除魔术字符串
+// function getArea(shape) {
+//     let area = 0;
+//     switch (shape) {
+//         case 'Triangle':
+//             area = 1;
+//             break;
+//         case 'Circle':
+//             area = 2;
+//             break;
+//     }
+//     return area;
+// }
+
+// var rs = getArea('Triangle');
+// console.log(rs);
+
+// 使用 Symbol:
+// const shapeType = {triangle: 'Triangle',circle: 'Circle'};
+// const shapeType = {triangle: Symbol(),circle: Symbol()};
+// function getArea(shape) {
+//     let area = 0;
+//     switch (shape) {
+//         case shapeType.triangle:
+//             area = 1;
+//             break;
+//         case shapeType.circle:
+//             area = 2;
+//             break;
+//     }
+//     return area;
+// }
+
+// var rs = getArea(shapeType.circle);     // 2
+// console.log(rs);

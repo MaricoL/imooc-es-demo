@@ -12,9 +12,10 @@
 //     this.color = color;
 // }
 
-// console.log(Dog.prototype);
+// // console.log(Dog.prototype);
 
-// console.log(new Animal());
+// // console.log(new Animal());
+
 // // 继承方法
 // Dog.prototype = new Animal();
 // Dog.prototype.constructor = Dog;
