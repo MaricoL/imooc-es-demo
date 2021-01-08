@@ -60,18 +60,18 @@
 // console.log(grade2[stud2]);     // {address: "bbb", phone: "222"}
 
 // 应用二：隐藏对象遍历
-const sym = Symbol('age');
-class User {
-    constructor(name) {
-        this.name = name;
-        this[sym] = 18
-    }
+// const sym = Symbol('age');
+// class User {
+//     constructor(name) {
+//         this.name = name;
+//         this[sym] = 18
+//     }
 
-    show() {
-        console.log(this.name + this[sym]);
-    }
-}
-let user = new User('zhangsan');
+//     show() {
+//         console.log(this.name + this[sym]);
+//     }
+// }
+// let user = new User('zhangsan');
 // user.show();        // zhangsan18
 
 // for in 无法遍历 Symbol 类型的 key
@@ -79,6 +79,18 @@ let user = new User('zhangsan');
 //     console.log(key,user[key]);     // name zhangsan
 // }
 
-for(let key of Object.keys(user)) {
-    console.log(key,user[key]);     // name zhangsan
+// Object.keys(user) 无法遍历 Symbol 类型的 key
+// for(let key of Object.keys(user)) {
+//     console.log(key,user[key]);     // name zhangsan
+// }
+
+// Object.getOwnPropertySymbols(user) 只能获取Symbol类型的属性
+// for (let key of Object.getOwnPropertySymbols(user)) {
+//     console.log(key, user[key]);        // Symbol(age) 18
+// }
+
+// Reflect.ownKeys(user) 可以遍历所有属性
+for (let key of Reflect.ownKeys(user)) {
+    console.log(key, user[key]);        // name zhangsan
+                                        // Symbol(age) 18
 }
