@@ -74,7 +74,7 @@ let arr3 = [1,2,4,2,3];
 //     console.log(item);   // 0 1 2 3 4
 // }
 
-// for...in 支持 continue、break
+// for...of 支持 continue、break
 // for(let item of arr3) {
 //     if(item === 2) {
 //         continue;
