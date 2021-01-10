@@ -60,18 +60,18 @@
 // console.log(grade2[stud2]);     // {address: "bbb", phone: "222"}
 
 // 应用二：隐藏对象遍历
-const sym = Symbol('age');
-class User {
-    constructor(name) {
-        this.name = name;
-        this[sym] = 18
-    }
+// const sym = Symbol('age');
+// class User {
+//     constructor(name) {
+//         this.name = name;
+//         this[sym] = 18
+//     }
 
-    show() {
-        console.log(this.name + this[sym]);
-    }
-}
-let user = new User('zhangsan');
+//     show() {
+//         console.log(this.name + this[sym]);
+//     }
+// }
+// let user = new User('zhangsan');
 // user.show();        // zhangsan18
 
 // for in 无法遍历 Symbol 类型的 key
